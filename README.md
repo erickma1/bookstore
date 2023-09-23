@@ -37,7 +37,7 @@
      <li><a href="https://en.wikipedia.org/wiki/HTML">HTML</a></li>
     <li><a href="https://en.wikipedia.org/wiki/CSS">CSS</a></li>
     <li><a href="https://en.wikipedia.org/wiki/Javascript">Javascript</a></li>
-    <li><a href=" https://react.dev/">React</a></li>
+    <li><a href="https://react.dev/">React</a></li>
   </ul>
 </details>
 
