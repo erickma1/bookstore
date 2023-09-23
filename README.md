@@ -181,6 +181,6 @@ I would like to thank Microverse for the immense support.
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](https://github.com/erickma1/bookstore/blob/main/LICENSE) licensed.
+This project is [MIT](https://github.com/erickma1/bookstore/blob/initialize_project/LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
