@@ -1,20 +1,57 @@
-import React from 'react';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { v4 as uuidV4 } from 'uuid';
+import { addBooks } from '../redux/books/booksSlice';
 
-const Form = () => (
-  <section className="form-container">
-    <h2>ADD NEW BOOK</h2>
-    <div className="form-inputs">
-      <input type="text" placeholder="Book title" required />
-      <select name="categories" id="categories">
-        <option value="Category 1">Novel</option>
-        <option value="Category 2">Essay</option>
-        <option value="Category 3">History</option>
-        <option value="Category 2">Biography</option>
-        <option value="Category 3">LItterature</option>
-      </select>
-      <button type="button">ADD BOOK</button>
-    </div>
-  </section>
-);
+const Form = () => {
+  const dispatch = useDispatch();
+  const [formValue, setFormValue] = useState({
+    title: '',
+    author: '',
+    category: '',
+  });
+  const id = uuidV4();
+
+  const handleInput = (e) => {
+    const { name, value } = e.target;
+    setFormValue({ ...formValue, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formValueWithid = { item_id: id, ...formValue };
+
+    dispatch(addBooks(formValueWithid));
+
+    setFormValue({ title: '', author: '', category: '' });
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="input"
+        placeholder="Add book"
+        value={formValue.title}
+        name="title"
+        onChange={handleInput}
+      />
+      <input
+        type="input"
+        placeholder="Add Author"
+        value={formValue.author}
+        name="author"
+        onChange={handleInput}
+      />
+      <input
+        type="input"
+        placeholder="Add Category"
+        value={formValue.category}
+        name="category"
+        onChange={handleInput}
+      />
+      <button type="submit">Add a Book</button>
+    </form>
+  );
+};
 
 export default Form;
