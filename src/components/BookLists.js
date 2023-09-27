@@ -19,7 +19,11 @@ const BooksList = ({ bookItem }) => {
 };
 
 BooksList.propTypes = {
-  bookItem: PropTypes.object.isRequired,
+  bookItem: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+    item_id: PropTypes.number.isRequired,
+  }).isRequired,
 };
 
 export default BooksList;
