@@ -1,41 +1,35 @@
-import { NavLink } from 'react-router-dom';
-import user from '../img/user.svg';
+import { Outlet, NavLink } from 'react-router-dom';
 
-const Header = () => (
-  <header className="cms-header">
+const NavLayout = () => (
+  <>
     <nav>
-      <ul className="menu-link">
+      <ul className="menu">
         <li className="logo">
-          <NavLink to="/bookstore">Bookstore CMS</NavLink>
+          <NavLink to="/">Bookstore CMS</NavLink>
         </li>
-        <li>
+        <li className="link">
           <NavLink
-            className={({ isActive }) => (isActive ? 'active' : '')}
-            to="/bookstore"
+            to="/"
+            className={({ isActive }) => (isActive ? 'active-link' : '')}
           >
             BOOKS
           </NavLink>
         </li>
-        <li>
+        <li className="link">
           <NavLink
-            className={({ isActive }) => (isActive ? 'active' : '')}
-            to="/Categories"
+            className={({ isActive }) => (isActive ? 'active-link' : '')}
+            to="/categories"
           >
             CATEGORIES
           </NavLink>
         </li>
+        <li className="profile">
+          <i className="fa-solid fa-user"> </i>
+        </li>
       </ul>
-      <NavLink
-        className={({ isActive }) => (isActive ? 'active' : '')}
-        to="/bookstore"
-      />
     </nav>
-
-    <div>
-      <img className="user-icon" alt="user-setting" src={user} />
-
-    </div>
-  </header>
+    <Outlet />
+  </>
 );
 
-export default Header;
+export default NavLayout;
