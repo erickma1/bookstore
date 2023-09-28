@@ -11,13 +11,26 @@ const BooksList = ({ bookItem }) => {
     <div className="book-content">
       <h4>{bookItem.category}</h4>
       <h2>{bookItem.title}</h2>
-      <h6>{bookItem.author}</h6>
-      <div className="action-button">
-        <button type="button" onClick={() => removeBook(bookItem.id)}>
-          Delete
+      <h6>
+        <span>by </span>
+        {bookItem.author}
+      </h6>
+      <div className="action-buttons">
+        <button className="button-outline" type="button">
+          Comments
         </button>
-        <button type="button">Comment</button>
-        <button type="button">Edit</button>
+        <div className="vertical-divider"> </div>
+        <button
+          className="button-outline"
+          type="button"
+          onClick={() => removeBook(bookItem.id)}
+        >
+          Remove
+        </button>
+        <div className="vertical-divider"> </div>
+        <button className="button-outline" type="button">
+          Edit
+        </button>
       </div>
     </div>
   );
